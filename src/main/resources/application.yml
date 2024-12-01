@@ -4,13 +4,11 @@ spring:
     username: root
     password: 12345678
     driver-class-name: com.mysql.cj.jdbc.Driver
-
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
-
   application:
     name: programming-student-exercise
 

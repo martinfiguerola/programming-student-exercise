@@ -32,4 +32,9 @@ public class CourseServiceImpl implements CourseService{
     public void deleteById(Long id) {
         courseRepository.deleteById(id);
     }
+
+    @Override
+    public List<Course> findByName(String name) {
+        return courseRepository.findByNameContainingIgnoreCase(name);
+    }
 }

@@ -9,4 +9,7 @@ public interface CourseService {
     Course findById (Long id);
     List<Course> findAll ();
     void deleteById (Long id);
+    List<Course> findByName (String name);
+
+
 }

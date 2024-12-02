@@ -19,10 +19,17 @@ public class CourseController {
         return courseService.findAll();
     }
 
+    @GetMapping("/find")
+    public List<Course> findByName (@RequestParam String name) {
+        return courseService.findByName(name);
+    }
+
     @PostMapping
     public void save (@RequestBody Course course) {
-        courseService.save(course);
         System.out.println("Course created!!");
     }
+
+
+
 
 }

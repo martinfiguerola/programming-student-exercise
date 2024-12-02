@@ -10,6 +10,8 @@ public interface CourseService {
     List<Course> findAll ();
     void deleteById (Long id);
     List<Course> findByName (String name);
+    Course update (Course course);
+
 
 
 }

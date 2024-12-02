@@ -19,16 +19,31 @@ public class CourseController {
         return courseService.findAll();
     }
 
+    @GetMapping("/{id}")
+    public Course findById (@PathVariable Long id) {
+        return courseService.findById(id);
+    }
+
     @GetMapping("/find")
     public List<Course> findByName (@RequestParam String name) {
         return courseService.findByName(name);
     }
 
     @PostMapping
-    public void save (@RequestBody Course course) {
+    public void create (@RequestBody Course course) {
         System.out.println("Course created!!");
     }
 
+    @DeleteMapping("/delete/{id}")
+    public String delete (@PathVariable Long id) {
+        courseService.deleteById(id);
+        return "Course deleted!";
+    }
+
+    @PutMapping("/update")
+    public Course update (@RequestBody Course course) {
+        return courseService.update(course);
+    }
 
 
 

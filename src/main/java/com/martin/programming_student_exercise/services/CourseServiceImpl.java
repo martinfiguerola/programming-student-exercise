@@ -14,7 +14,7 @@ public class CourseServiceImpl implements CourseService{
     private CourseRepository courseRepository;
 
     @Override
-    public void save(Course course) {
+    public void save (Course course) {
         courseRepository.save(course);
     }
 
@@ -36,5 +36,19 @@ public class CourseServiceImpl implements CourseService{
     @Override
     public List<Course> findByName(String name) {
         return courseRepository.findByNameContainingIgnoreCase(name);
+    }
+
+    @Override
+    public Course update(Course course) {
+
+        Course courseDb = this.findById(course.getId());
+
+        courseDb.setName(course.getName());
+        courseDb.setModality(course.getModality());
+        courseDb.setEndDate(course.getEndDate());
+
+        courseRepository.save(courseDb);
+
+        return courseDb;
     }
 }

@@ -1,5 +1,6 @@
 package com.martin.programming_student_exercise.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +21,7 @@ public class Topic {
     private String description;
     @ManyToOne
     @JoinColumn(name = "course_id")
+    @JsonIgnore
     private Course course;
 
     public Topic(Long id, String name, String description) {
@@ -50,7 +52,6 @@ public class Topic {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", course=" + course +
                 '}';
     }
 }

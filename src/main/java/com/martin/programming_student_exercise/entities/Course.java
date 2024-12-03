@@ -51,6 +51,7 @@ public class Course {
                 ", name='" + name + '\'' +
                 ", modality='" + modality + '\'' +
                 ", endDate='" + endDate + '\'' +
+                ", topics=" + topics +
                 '}';
     }
 }

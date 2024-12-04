@@ -1,5 +1,7 @@
 package com.martin.programming_student_exercise.services;
 
+import com.martin.programming_student_exercise.dtos.CourseTopicDTO;
+import com.martin.programming_student_exercise.entities.Course;
 import com.martin.programming_student_exercise.entities.Topic;
 import com.martin.programming_student_exercise.repositories.TopicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,27 +20,26 @@ public class TopicServiceImpl implements TopicService{
     }
 
     @Override
-    public Topic findById(Long id) {
-        return null;
-    }
-
-    @Override
     public List<Topic> findAll() {
-        return null;
+        return topicRepository.findAll();
     }
 
     @Override
-    public void deleteById(Long id) {
-
-    }
-
-    @Override
-    public List<Topic> findByName(String name) {
-        return null;
+    public Topic findById(Long id) {
+        return topicRepository.findById(id).orElse(null);
     }
 
     @Override
     public Topic update(Topic topic) {
-        return null;
+
+        Topic topicDb = this.findById(topic.getId());
+
+        topicDb.setName(topic.getName());
+        topicDb.setDescription(topic.getDescription());
+        topicDb.setCourse(topic.getCourse());
+
+        topicRepository.save(topicDb);
+        return topicDb;
+
     }
 }

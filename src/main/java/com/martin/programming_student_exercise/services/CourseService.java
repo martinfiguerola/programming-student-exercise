@@ -1,5 +1,6 @@
 package com.martin.programming_student_exercise.services;
 
+import com.martin.programming_student_exercise.dtos.CourseTopicDTO;
 import com.martin.programming_student_exercise.entities.Course;
 
 import java.util.List;
@@ -11,6 +12,7 @@ public interface CourseService {
     void deleteById (Long id);
     List<Course> findByName (String name);
     Course update (Course course);
+    CourseTopicDTO findAllTopicByCourseId (Long courseId);
 
 
 
